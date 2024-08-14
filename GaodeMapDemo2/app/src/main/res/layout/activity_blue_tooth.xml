@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        tools:context="com.example.bxy.arduino_bt_android.MainActivity">
+
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+
+            <Button
+                android:id="@+id/Btopen"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/button_round"
+                android:text="连接"
+                android:textColor="@color/black" />
+
+            <RelativeLayout
+                android:orientation="horizontal"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_margin="5dp">
+            <ImageView
+                android:id="@+id/disconnect"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/disconnect"/>
+
+            <ImageView
+                android:id="@+id/connected"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:src="@drawable/connect"
+                android:visibility="gone"/>
+            </RelativeLayout>
+
+            <Button
+                android:id="@+id/Btclose"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:backgroundTint="@color/white"
+                android:background="@drawable/button_round"
+                android:text="断开"
+                android:textColor="@color/black"/>
+
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备名称："
+                android:textSize="18sp"/>
+            <Space android:layout_width="5dp"
+                android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/device_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"/>
+        </LinearLayout>
+        <LinearLayout android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="5dp">
+            <TextView android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="设备地址："
+                android:textSize="18sp"/>
+            <Space android:layout_width="5dp"
+                android:layout_height="wrap_content"/>
+            <TextView android:id="@+id/device_address"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"/>
+        </LinearLayout>
+
+        <Space android:layout_width="0dp"
+            android:layout_height="20dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <EditText android:id="@+id/edit_message"
+            android:layout_weight="1"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:hint="在此处编辑" />
+
+        <Button
+            android:id="@+id/BtSend"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_weight="0"
+            android:text="发送"
+            android:backgroundTint="@color/white"
+            android:background="@drawable/button_round"
+            android:textColor="@color/black" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/TV"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center">
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/openNaviButton"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:layout_marginBottom="40dp"
+            android:layout_centerInParent="true"
+            android:src="@drawable/start_navi"
+            app:backgroundTint="#FFFFFF"
+            app:backgroundTintMode="screen"
+            app:fabSize="auto"
+            app:pressedTranslationZ="18dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal"
+            android:layout_below="@+id/openNaviButton"
+            android:textSize="15sp"
+            android:text="开始导航"/>
+    </RelativeLayout>
+
+
+
+</LinearLayout>
+

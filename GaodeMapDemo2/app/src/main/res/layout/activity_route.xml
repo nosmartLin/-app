@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".RouteActivity"
+    class="com.amap.api.maps.SupportMapFragment">
+
+    <!--设置出行方式-->
+    <LinearLayout
+        android:id="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:orientation="horizontal"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="出行方式："
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <Spinner
+                android:id="@+id/spinner"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_weight="1" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingStart="6dp"
+            android:paddingEnd="6dp">
+
+            <TextView
+                android:id="@+id/tv_start"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:gravity="center_vertical"
+                android:text="当前所在地"
+                android:textColor="#000"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/et_start_address"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_marginStart="12dp"
+                android:layout_toRightOf="@+id/tv_start"
+                android:background="@null"
+                android:imeOptions="actionSearch"
+                android:textColor="#000"
+                android:textSize="@dimen/sp_14" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/et_start_address"
+                android:background="#000" />
+
+            <TextView
+                android:id="@+id/tv_end"
+                android:layout_width="wrap_content"
+                android:layout_height="45dp"
+                android:layout_below="@+id/et_start_address"
+                android:layout_marginTop="6dp"
+                android:gravity="center_vertical"
+                android:text="前往目的地"
+                android:textColor="#000"
+                android:textSize="@dimen/sp_14" />
+
+            <EditText
+                android:id="@+id/et_end_address"
+                android:layout_width="match_parent"
+                android:layout_height="45dp"
+                android:layout_below="@+id/et_start_address"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="6dp"
+                android:layout_toRightOf="@+id/tv_end"
+                android:background="@null"
+                android:hint="请输入目的地"
+                android:imeOptions="actionSearch"
+                android:singleLine="true"
+                android:textColor="#000"
+                android:textSize="14sp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_below="@+id/et_end_address"
+                android:background="#000" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <!--地图-->
+    <com.amap.api.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_below="@+id/top_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <LinearLayout
+        android:id="@+id/navi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:visibility="visible"
+        android:layout_alignParentBottom="true"
+        android:gravity="center_horizontal">
+
+        <Button
+            android:id="@+id/start_amap_app"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginEnd="2dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background_normal"
+            android:text="开始导航"
+            android:textColor="#fff"
+            android:visibility="visible" />
+
+        <Button
+            android:id="@+id/start_simulate_app"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_weight="1"
+            android:background="@android:drawable/editbox_background_normal"
+            android:text="模拟导航"
+            android:textColor="#fff"
+            android:visibility="visible" />
+    </LinearLayout>
+
+    <!--底部规划时间详情-->
+    <RelativeLayout
+        android:id="@+id/bottom_layout"
+        android:layout_above="@id/navi_layout"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:background="#FFF"
+        android:orientation="horizontal"
+        android:padding="5dp"
+        android:visibility="visible">
+
+        <TextView
+            android:id="@+id/tv_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginStart="12dp"
+            android:layout_weight="1"
+            android:paddingEnd="12dp"
+            android:singleLine="true"
+            android:textColor="#333333"
+            android:textSize="16sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:layout_marginEnd="10dp"
+            android:gravity="center_vertical"
+            android:orientation="horizontal">    <!--水平排列-->
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:text="详情"
+                android:textColor="#4c90f9"
+                android:textSize="14sp" />
+
+            <Button
+                android:layout_width="7dp"
+                android:layout_height="13dp"
+                android:layout_marginStart="4dp"
+                android:background="@mipmap/arrow_right_blue"
+                android:gravity="center_vertical" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</RelativeLayout>

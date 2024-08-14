@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <!-- 用于访问网络，网络定位需要上网 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+    <uses-permission android:name="android.permission.INTERNET" /> <!-- 用于读取手机当前的状态 -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" /> <!-- 用于写入缓存数据到扩展存储卡 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" /> <!-- 用于申请调用A-GPS模块 -->
+    <uses-permission android:name="android.permission.ACCESS_LOCATION_EXTRA_COMMANDS" /> <!-- 用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" /> <!-- 用于访问GPS定位 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" /> <!-- 用于获取运营商信息，用于支持提供运营商信息相关的接口 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" /> <!-- 用于访问wifi网络信息，wifi信息会用于进行网络定位 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" /> <!-- 用于获取wifi的获取权限，wifi信息会用来进行网络定位 -->
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.WAKE_LOCK" /> <!-- 蓝牙权限 -->
+    <uses-permission android:name="android.permission.BLUETOOTH" /> <!-- 如果你的应用需要更改蓝牙设置，例如打开或关闭蓝牙 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" /> <!-- 如果你的应用需要查找蓝牙设备 -->
+    <uses-permission android:name="android.permission.BLUETOOTH_SCAN" />
+
+    <application
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/app_icon"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.GaodeMapDemo"
+        tools:targetApi="31">
+
+        <service
+            android:name=".BluetoothService"
+            android:enabled="true"
+            android:exported="true"></service>
+
+        <activity
+            android:name=".InputTipsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".BlueToothActivity"
+            android:exported="false" />
+        <activity
+            android:name=".RouteNaviActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".RouteDetailActivity"
+            android:exported="false"
+            android:theme="@style/DetailTheme" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".MapApplication" /> <!-- 定位service -->
+        <activity android:name=".RouteActivity" />
+
+        <service android:name="com.amap.api.location.APSService" /> <!-- 设置高德Key -->
+        <meta-data
+            android:name="com.amap.api.v2.apikey"
+            android:value="f512c54f0a7b02a3daaab40bee962ee6" />
+    </application>
+
+</manifest>
