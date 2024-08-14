@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">智能骑行导航</string>
+    <!--    菜单-->
+    <string name="action_settings">Settings</string>
+
+    <string name="no_result">对不起，没有搜索到相关数据！</string>
+</resources>

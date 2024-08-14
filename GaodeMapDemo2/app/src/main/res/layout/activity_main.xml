@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <!--地图-->
+    <com.amap.api.maps.MapView
+        android:id="@+id/map_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/search"
+        app:layout_constraintTop_toTopOf="parent"/>
+
+    <!--按钮 跳转路线Activity-->
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/fab_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/et_bg"
+        android:clickable="true"
+        android:src="@drawable/icon_route"
+        app:backgroundTint="#FFFFFF"
+        app:backgroundTintMode="screen"
+        app:fabSize="mini"
+        app:hoveredFocusedTranslationZ="18dp"
+        app:pressedTranslationZ="18dp" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/bluetooth_button"
+        android:layout_above="@id/fab_route"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="20dp"
+        android:layout_marginBottom="20dp"
+        android:background="@drawable/et_bg"
+        android:clickable="true"
+        android:src="@drawable/bluetooth"
+        app:backgroundTint="#FFFFFF"
+        app:backgroundTintMode="screen"
+        app:fabSize="mini"
+        app:pressedTranslationZ="18dp"/>    <!--向上浮起-->
+
+    <RelativeLayout
+        android:id="@+id/search"
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:background="@drawable/background">
+
+        <ImageView
+            android:id="@+id/clean_keywords"
+            android:layout_width="wrap_content"
+            android:layout_height="24dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_close"
+            android:visibility="gone"/>
+
+        <TextView
+            android:id="@+id/main_keywords"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
+
+            android:layout_marginBottom="8dp"
+            android:layout_toStartOf="@+id/clean_keywords"
+            android:background="@drawable/et_bg"
+            android:clickable="true"
+            android:completionThreshold="1"
+            android:dropDownVerticalOffset="1.0dip"
+            android:focusable="true"
+            android:gravity="center_vertical"
+            android:hint="关键字搜索"
+            android:imeOptions="actionDone"
+            android:inputType="text|textAutoComplete"
+            android:maxLength="20"
+            android:paddingStart="10dp"
+            android:singleLine="true"
+            android:textAlignment="center"
+            android:textColor="#000000"
+            android:textColorHint="#BAB9B9"
+            android:textSize="16.0sp"
+            tools:ignore="RtlCompat,RtlSymmetry,TextViewEdits" />
+    </RelativeLayout>
+</RelativeLayout>
